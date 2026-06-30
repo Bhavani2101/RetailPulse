@@ -1,0 +1,4 @@
+KMeans_Cluster,Count,Avg_Recency,Avg_Frequency,Avg_Monetary,Avg_RFM_Score,Business_Label
+0,513,17.61,51.34,33241.24,11.39,Champions
+1,361,18.69,40.6,24171.78,6.67,Loyal Customers
+2,126,74.35,44.11,27600.77,6.13,At-Risk Customers

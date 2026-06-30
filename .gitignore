@@ -22,9 +22,15 @@ build/
 //.env.*
 
 # ── Data Files (track folder structure, not raw data) ────────────────────────
+<<<<<<< HEAD
 //data/raw/*.csv
 //data/raw/*.xlsx
 //data/raw/*.zip
+=======
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.zip
+>>>>>>> 1dd68370 (Track processed data and models)
 
 
 # ── Trained Models (large binary files) ──────────────────────────────────────
