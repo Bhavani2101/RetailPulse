@@ -25,14 +25,10 @@ ENV/
 data/raw/*.csv
 data/raw/*.xlsx
 data/raw/*.zip
-data/processed/*.csv
-data/processed/*.xlsx
+
 
 # ── Trained Models (large binary files) ──────────────────────────────────────
-models/*.pkl
-models/*.pt
-models/*.joblib
-models/*.h5
+
 
 # ── Generated Reports / Charts ────────────────────────────────────────────────
 reports/*.png
