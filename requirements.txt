@@ -1,0 +1,35 @@
+# RetailPulse – Python Dependencies
+# Install with: pip install -r requirements.txt
+#
+# Core packages are pinned to known-good versions.
+# Optional packages (prophet, xgboost) can be skipped if not needed —
+# the pipeline includes fallbacks for both.
+
+# ── Data Manipulation ─────────────────────────────────────────────────────────
+pandas>=2.0,<3.0
+numpy>=1.26,<2.1
+
+# ── Machine Learning ──────────────────────────────────────────────────────────
+scikit-learn>=1.4,<2.0
+xgboost>=2.0,<3.0           # Churn prediction (optional but recommended)
+joblib>=1.3,<2.0            # Model serialisation
+
+# ── Time Series Forecasting ───────────────────────────────────────────────────
+# Prophet requires pystan; install separately if you hit issues:
+#   pip install prophet
+prophet>=1.1,<2.0           # Demand forecasting (optional; linear fallback used if absent)
+statsmodels>=0.14,<1.0      # ADF stationarity test
+
+# ── Dashboard ─────────────────────────────────────────────────────────────────
+streamlit>=1.35,<2.0
+plotly>=5.20,<6.0
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib>=3.8,<4.0
+seaborn>=0.13,<1.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+openpyxl>=3.1,<4.0          # Read .xlsx files
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=8.0,<9.0
