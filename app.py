@@ -1,6 +1,6 @@
 # src/dashboard/app.py
 # RetailPulse – Streamlit Dashboard (4 Business Dashboards)
-st.write("TEST VERSION - 30 June 2026")
+
 import os
 import sys
 import pandas as pd
