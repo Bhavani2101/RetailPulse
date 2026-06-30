@@ -282,7 +282,7 @@ if page == "💰 Sales Dashboard":
                       xaxis_title="", yaxis_title="Revenue (£)",
                       plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                       xaxis=dict(showgrid=False), yaxis=dict(gridcolor="#f0f0f0"))
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     col_a, col_b = st.columns(2)
 
@@ -298,7 +298,7 @@ if page == "💰 Sales Dashboard":
         fig.update_layout(height=340, showlegend=False, margin=dict(l=0,r=0,t=10,b=0),
                           plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                           coloraxis_showscale=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with col_b:
         section("Revenue by Country")
@@ -311,7 +311,7 @@ if page == "💰 Sales Dashboard":
         fig.update_layout(height=340, showlegend=False, margin=dict(l=0,r=0,t=10,b=0),
                           plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                           coloraxis_showscale=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     col_c, col_d = st.columns(2)
 
@@ -326,7 +326,7 @@ if page == "💰 Sales Dashboard":
         fig.update_layout(height=280, showlegend=False, margin=dict(l=0,r=0,t=10,b=0),
                           plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                           coloraxis_showscale=False)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with col_d:
         section("Monthly Revenue Heatmap")
@@ -339,7 +339,7 @@ if page == "💰 Sales Dashboard":
         fig = px.imshow(pivot, color_continuous_scale="Blues", aspect="auto",
                         labels={"color": "Revenue (£)"})
         fig.update_layout(height=280, margin=dict(l=0,r=0,t=10,b=0))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     section("Order Value Distribution")
     fig = px.histogram(cleaned[cleaned["TotalAmount"] < cleaned["TotalAmount"].quantile(0.99)],
@@ -349,7 +349,7 @@ if page == "💰 Sales Dashboard":
     fig.update_layout(height=240, margin=dict(l=0,r=0,t=10,b=0),
                       plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                       bargap=0.05)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -403,7 +403,7 @@ elif page == "👥 Customer Dashboard":
                 fig.update_traces(textposition="outside", textinfo="label+percent")
                 fig.update_layout(height=360, showlegend=False,
                                   margin=dict(l=20,r=20,t=20,b=20))
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             with col_b:
                 section("Revenue by Segment")
@@ -417,7 +417,7 @@ elif page == "👥 Customer Dashboard":
                 fig.update_layout(height=360, showlegend=False, coloraxis_showscale=False,
                                   margin=dict(l=0,r=0,t=10,b=0),
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             section("Segment Summary Table")
             grp_cols = {"CustomerID": "count", "Recency": "mean",
@@ -426,7 +426,7 @@ elif page == "👥 Customer Dashboard":
             summary = data.groupby(seg_col).agg(grp_cols).round(2).reset_index()
             summary.columns = [seg_col, "Customers", "Avg Recency",
                                 "Avg Frequency", "Avg Monetary"][:len(summary.columns)]
-            st.dataframe(summary, use_container_width=True, hide_index=True)
+            st.dataframe(summary, width='stretch', hide_index=True)
 
             section("3D RFM Scatter")
             sample = data.sample(min(1500, len(data)), random_state=42)
@@ -434,7 +434,7 @@ elif page == "👥 Customer Dashboard":
                                  color=seg_col, opacity=0.65,
                                  color_discrete_sequence=px.colors.qualitative.Bold)
             fig.update_layout(height=480, margin=dict(l=0,r=0,t=10,b=0))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         else:
             st.info("Segment column not found. Run `segmentation.py` for labelled segments.")
 
@@ -448,21 +448,21 @@ elif page == "👥 Customer Dashboard":
                                    color_discrete_sequence=["#0969da"])
                 fig.update_layout(height=260, margin=dict(l=0,r=0,t=10,b=0),
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
             with col_b:
                 section("Frequency Distribution")
                 fig = px.histogram(rfm, x="Frequency", nbins=40,
                                    color_discrete_sequence=["#1a7f37"])
                 fig.update_layout(height=260, margin=dict(l=0,r=0,t=10,b=0),
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
             with col_c:
                 section("Monetary Distribution")
                 fig = px.histogram(rfm, x="Monetary", nbins=40,
                                    color_discrete_sequence=["#9a3412"])
                 fig.update_layout(height=260, margin=dict(l=0,r=0,t=10,b=0),
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             if "RFM_Score" in rfm.columns:
                 section("RFM Score Distribution")
@@ -474,11 +474,11 @@ elif page == "👥 Customer Dashboard":
                                   coloraxis_showscale=False,
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                                   margin=dict(l=0,r=0,t=10,b=0))
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             section("Top 20 Customers by Monetary Value")
             top_cust = rfm.nlargest(20, "Monetary")[["CustomerID","Recency","Frequency","Monetary"]]
-            st.dataframe(top_cust.reset_index(drop=True), use_container_width=True, hide_index=True)
+            st.dataframe(top_cust.reset_index(drop=True), width='stretch', hide_index=True)
         else:
             st.info("Run `rfm.py` to generate RFM scores.")
 
@@ -496,7 +496,7 @@ elif page == "👥 Customer Dashboard":
                 fig.update_layout(height=300, showlegend=False,
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                                   margin=dict(l=0,r=0,t=10,b=0))
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             with col_b:
                 section("Churn Probability Distribution")
@@ -506,7 +506,7 @@ elif page == "👥 Customer Dashboard":
                               annotation_text="Threshold 0.5")
                 fig.update_layout(height=300, margin=dict(l=0,r=0,t=10,b=0),
                                   plot_bgcolor="#ffffff", paper_bgcolor="#ffffff")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
 
             threshold = st.slider("Risk Threshold", 0.1, 0.9, 0.5, 0.05)
             at_risk = churn[churn["churn_probability"] >= threshold]
@@ -517,7 +517,7 @@ elif page == "👥 Customer Dashboard":
                      .head(20)[["CustomerID","churn_probability","churn_risk_label"]]
                      .reset_index(drop=True))
             top20["churn_probability"] = top20["churn_probability"].round(4)
-            st.dataframe(top20, use_container_width=True, hide_index=True)
+            st.dataframe(top20, width='stretch', hide_index=True)
 
             shap_path = os.path.join(REPORTS_DIR, "shap_summary.png")
             if os.path.exists(shap_path):
@@ -594,7 +594,7 @@ elif page == "📈 Forecast Dashboard":
                       xaxis=dict(showgrid=False),
                       yaxis=dict(gridcolor="#f0f0f0", title="Revenue (£)"),
                       legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1))
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
     col_a, col_b = st.columns(2)
 
@@ -608,7 +608,7 @@ elif page == "📈 Forecast Dashboard":
         fig.update_layout(height=280, showlegend=False, coloraxis_showscale=False,
                           plot_bgcolor="#ffffff", paper_bgcolor="#ffffff",
                           margin=dict(l=0,r=0,t=10,b=0))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with col_b:
         section("Daily Forecast Table")
@@ -616,7 +616,7 @@ elif page == "📈 Forecast Dashboard":
         display.columns = ["Date", "Forecast Revenue (£)"]
         display["Date"] = display["Date"].dt.strftime("%Y-%m-%d")
         display["Forecast Revenue (£)"] = display["Forecast Revenue (£)"].round(2)
-        st.dataframe(display, use_container_width=True, height=280, hide_index=True)
+        st.dataframe(display, width='stretch', height=280, hide_index=True)
 
     # Historical seasonality insight
     section("Historical Revenue by Month")
