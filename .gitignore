@@ -14,26 +14,26 @@ build/
 .eggs/
 
 # ── Virtual Environments ──────────────────────────────────────────────────────
-.venv/
-venv/
-env/
-ENV/
-.env
-.env.*
+//.venv/
+//venv/
+//env/
+//ENV/
+//.env
+//.env.*
 
 # ── Data Files (track folder structure, not raw data) ────────────────────────
-data/raw/*.csv
-data/raw/*.xlsx
-data/raw/*.zip
+//data/raw/*.csv
+//data/raw/*.xlsx
+//data/raw/*.zip
 
 
 # ── Trained Models (large binary files) ──────────────────────────────────────
 
 
 # ── Generated Reports / Charts ────────────────────────────────────────────────
-reports/*.png
-reports/*.html
-reports/*.pdf
+//reports/*.png
+//reports/*.html
+//reports/*.pdf
 
 # ── Jupyter ───────────────────────────────────────────────────────────────────
 .ipynb_checkpoints/
@@ -44,7 +44,7 @@ reports/*.pdf
 
 # ── IDE / Editor ──────────────────────────────────────────────────────────────
 .idea/
-.vscode/
+//.vscode/
 *.iml
 .DS_Store
 Thumbs.db
@@ -63,9 +63,9 @@ htmlcov/
 .pytest_cache/
 
 # ── Archives ─────────────────────────────────────────────────────────────────
-*.zip
-*.tar.gz
+//*.zip
+//*.tar.gz
 
 # ── MLflow ───────────────────────────────────────────────────────────────────
-mlruns/
-mlflow.db
+//mlruns/
+//mlflow.db
